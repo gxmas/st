@@ -20,7 +20,7 @@ index 546edda..6c6b928 100644
  
 +/* bg opacity */
 +float alpha = 0.8;           //< alpha value used when the window is focused.
-+float alphaUnfocussed = 0.6; //< alpha value used when the focus is lost
++float alphaUnfocused = 0.6; //< alpha value used when the focus is lost
 +
  /* Terminal colors (16 first used in escape sequence) */
  static const char *colorname[] = {
@@ -64,7 +64,7 @@ index a1928ca..2009c33 100644
  extern unsigned int defaultfg;
  extern unsigned int defaultbg;
 +extern float alpha;
-+extern float alphaUnfocussed;
++extern float alphaUnfocused;
 diff --git a/x.c b/x.c
 index 1f62129..6d6751d 100644
 --- a/x.c
@@ -121,7 +121,7 @@ index 1f62129..6d6751d 100644
 +    if (opt_alpha)
 +        alpha = strtof(opt_alpha, NULL);
 +
-+    float const usedAlpha = focused ? alpha : alphaUnfocussed;
++    float const usedAlpha = focused ? alpha : alphaUnfocused;
 +
 +    dc.col[defaultbg].color.alpha = (unsigned short)(0xffff * usedAlpha);
 +    dc.col[defaultbg].pixel &= 0x00FFFFFF;
